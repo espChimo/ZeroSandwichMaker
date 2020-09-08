@@ -1,0 +1,304 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ZeroSandwitchMaker
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Keeps the game running in a loop
+            bool isRunning = true;
+            while (isRunning)
+            {
+                //stats
+                int despair = 0;
+                //Array shopping cart
+                int sizeCart = 6;
+                string[] shoppingCart = new string[sizeCart];
+
+                shoppingCart[0] = "";
+                shoppingCart[1] = "";
+                shoppingCart[2] = "";
+                shoppingCart[3] = "";
+                shoppingCart[4] = "";
+                shoppingCart[5] = "";
+                //Wanting to buy things for a sandwich
+                //Shopping session // Buy
+                Console.WriteLine("What will you put in your shopping cart?");
+                for (int i = 0; i < shoppingCart.Length; i++)
+                {
+                    shoppingCart[i] = Console.ReadLine();
+                    Console.WriteLine("{0} was added to your cart.", shoppingCart[i]);
+                }
+                Console.Write("Press any key");
+                Console.ReadKey();
+                Console.Clear();
+
+                //Walking home
+                Console.WriteLine("You walk up to the self-checkout and rummage");
+                Console.WriteLine("through your pockets looking for your wallet..");
+                Console.Write("Press any key");
+                Console.ReadKey();
+                Console.Clear();
+                Console.WriteLine("It seems like you found a 100$ bill somehow.");
+                Console.Write("Press any key");
+                Console.ReadKey();
+                Console.Clear();
+                Console.WriteLine("Better not to think of how it got there.");
+                Console.Write("Press any key");
+                Console.ReadKey();
+                Console.Clear();
+                Console.WriteLine("On your way home the road splits in two, which path will you take?");
+                //The path divides a choice is given
+                Console.WriteLine("[1]The Silent Path.");
+                Console.WriteLine("[2]The Busy Path.");
+                Console.Write("What path will you choose: ");
+                //player choice
+                int firstPathChoice;
+                bool success = Int32.TryParse(Console.ReadLine(), out firstPathChoice);
+
+                Console.Clear();
+                //PATH DIVIDES
+                switch (firstPathChoice)
+                {
+                    case 1:
+                        Console.WriteLine("You end up walking through the silent path..");
+                        Console.Write("Press any key");
+                        Console.ReadKey();
+                        Console.Clear();
+                        Console.WriteLine("It's dead quiet, only your footsteps and plastic bag are heard.");
+                        Console.Write("Press any key");
+                        Console.ReadKey();
+                        Console.Clear();
+                        Console.WriteLine("Well also your gay ass tight pants..");
+                        Console.Write("Press any gay");
+                        Console.ReadKey();
+                        Console.Clear();
+                        Console.WriteLine("A big black man blocks your path..");
+                        Console.Write("Press any key");
+                        Console.ReadKey();
+                        Console.Clear();
+                        Console.WriteLine("He gives you the choice of giving up your {0}, {1}, {2} and {3}.", shoppingCart[0], shoppingCart[1], shoppingCart[2], shoppingCart[3]);
+                        //criminal gives choice
+                        int blackPathChoice;
+                        Console.WriteLine("[1]Give in.");
+                        Console.WriteLine("[2]Try and run away.");
+                        bool successTwo = Int32.TryParse(Console.ReadLine(), out blackPathChoice);
+                        switch (blackPathChoice)
+                        {
+                            case 1:
+                                //give in lose 4 items
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    Console.WriteLine("{0} was taken.", shoppingCart[i]);
+                                    Console.ReadKey();
+                                }
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    shoppingCart[i] = "";
+                                }
+                                Console.Clear();
+                                Console.WriteLine("100+ Despair");
+                                despair = 100;
+                                Console.Write("Press any key");
+                                Console.ReadKey();
+                                Console.Clear();
+                                Console.WriteLine("You arrive in front of your door, looking down on the ground in DEFEAT.");
+                                Console.Write("Press any key");
+                                Console.ReadKey();
+                                Console.Clear();
+                                break;
+
+                            case 2:
+                                //try and run lose 1 item
+                                Console.WriteLine("You think back to the days where you played Sonic..");
+                                Console.ReadKey();
+                                Console.WriteLine("YOU FEEL LIKE A BLOODY STREAM RUNNING THROUGH YOUR VEINS!!");
+                                Console.WriteLine("IT POWERS YOU UP");
+                                Console.WriteLine("100+ Speed");
+                                Console.Write("Press any key");
+                                Console.ReadKey();
+                                Console.Clear();
+                                Console.WriteLine("You arrive safely in front of your doorstep.");
+                                Console.WriteLine("Breathing heavily, you find the taste of victory satisfying.");
+                                Console.Write("Press any key");
+                                Console.ReadKey();
+                                Console.Clear();
+                                Console.WriteLine("Just to be safe, you check the contents of your plastic bag.");
+                                Console.Write("Press any key");
+                                Console.ReadKey();
+                                Console.Clear();
+                                Console.Write("*rrrsidjf*");
+                                Console.ReadKey();
+                                Console.Clear();
+                                Console.Write("*sdfpof*");
+                                Console.ReadKey();
+                                Console.Clear();
+                                Console.Write("*kdkfrsr*");
+                                Console.ReadKey();
+                                Console.Clear();
+                                Console.WriteLine("It seems like you lost your {0}.", shoppingCart[3]);
+                                Console.Write("Press any key");
+                                Console.ReadKey();
+                                Console.WriteLine("50+ Despair");
+                                despair = 50;
+                                Console.Write("Press any key");
+                                Console.ReadKey();
+                                Console.Clear();
+                                break;
+
+                            default:
+                                //fail and exit program
+                                Console.WriteLine("You hesitate and didn't choose properly, the black man got angry");
+                                Console.WriteLine("and decided to shakedown all your items.");
+                                for (int i = 0; i < shoppingCart.Length; i++)
+                                {
+                                    Console.Write("Your {0} was taken.", shoppingCart[i]);
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                }
+                                Console.WriteLine("9999+ Despair");
+                                Console.WriteLine("Your overwhelming DESPAIR makes u choke inside.");
+                                Console.Write("Press any key");
+                                Console.ReadKey();
+                                Console.WriteLine("Your Despair is too HIGH, and has resulted in your loss.");
+                                Console.Write("Press any key to give in");
+                                Console.ReadKey();
+                                Environment.Exit(0);
+                                break;
+                        }
+                        break;
+
+                    case 2:
+                        break;
+                    default:
+                        //FAILED TO CHOOSE A PATH
+                        Console.WriteLine("You didnt pick any of the paths, which lead to your tragic end..");
+                        Console.Write("Press any key");
+                        Console.ReadKey();
+                        Console.Clear();
+                        Console.WriteLine("It seems like you regret your actions in the afterlife.");
+                        Console.WriteLine("500+ Despair");
+                        Console.Write("Press any key to sleep forever");
+                        Console.ReadKey();
+                        Environment.Exit(0);
+                        break;
+                }
+                Console.Clear();
+
+                //Looking through your bag
+                for (int i = 0; i < shoppingCart.Length; i++)
+                {
+                    Console.WriteLine("You find {0} in your bag.", shoppingCart[i]);
+                    Console.Write("Press any key to keep looking.");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                Console.Clear();
+                Console.WriteLine("Seems like your sandwich will manage....");
+                Console.Write("Press any key");
+                Console.ReadKey();
+                Console.Clear();
+                Console.WriteLine("................");
+                Console.Write("Press any key");
+                Console.ReadKey();
+                Console.Clear();
+                //Counter sandwich making
+                Console.WriteLine("You stand infront of your counter and put all your things out.");
+                Console.Write("Press any key");
+                Console.ReadKey();
+                Console.Clear();
+                Console.WriteLine("Your pp tingles in excitement.");
+                Console.Write("Press any key");
+                Console.ReadKey();
+                Console.Clear();
+                Console.WriteLine("You go and grab your two bread slices from the oven.");
+                Console.Write("Press any key");
+                Console.ReadKey();
+                Console.Clear();
+                Console.WriteLine("You put: ");
+                for (int i = 0; i < shoppingCart.Length; i++)
+                {
+                    Console.WriteLine("{0}", shoppingCart[i]);
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                Console.WriteLine("into your sandwich.");
+                Console.Write("Press any key to dig in..");
+                Console.ReadKey();
+                Console.Clear();
+                //if despair level
+                Console.WriteLine("10+ Despair");
+                despair = despair+10;
+                Console.Write("Press any key");
+                Console.ReadKey();
+                Console.Clear();
+                if (despair > 100)
+                {
+                    Console.WriteLine("You couldn't finish your sandwich.");
+                    Console.WriteLine("Despair looms over you..");
+                    Console.Write("Press any key");
+                    Console.ReadKey();
+                    Console.Clear();
+                    Console.WriteLine("You ended your journey with your despair level at {0}", despair);
+                    Console.Write("Press any key");
+                    Console.ReadKey();
+                    Console.Clear();
+                    Console.WriteLine("You will die in your sleep tonight.");
+                    Console.Write("Press any key");
+                    Console.Write("Press any key");
+                    Console.Write("Press any key");
+                    Console.ReadKey();
+                    Console.Write("Press any key");
+                    Console.Write("Press any key");
+                    Console.Write("Press any key");
+                    Console.Write("Press any key");
+                    Console.ReadKey();
+                    Console.Clear();
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine("You finished your Sandwich.");
+                    Console.Write("Press any key");
+                    Console.ReadKey();
+                    Console.Clear();
+                    Console.WriteLine("You ended your journey with your despair level at {0}", despair);
+                    Console.Write("Press any key");
+                    Console.ReadKey();
+                    Console.Clear();
+                    Console.WriteLine("You end up sleeping soundly.");
+                    Console.Write("Press any key");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                Console.WriteLine("Do you wanna redo your choices in life? Yes/No");
+                string answerEnd = Console.ReadLine();
+                if (answerEnd.Equals("Yes"))
+                {
+                    Console.Write("Press any key to continue the loop");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                else if (answerEnd.Equals("No"))
+                {
+                    Console.Write("Press any key to end");
+                    Console.ReadKey();
+                    Console.Clear();
+                    isRunning = false;
+                }
+                else
+                {
+                    Console.Write("You didnt choose any valid answer, the loop will end");
+                    Console.ReadKey();
+                    Console.Clear();
+                    isRunning = false;
+                }
+            }
+        }
+    }
+}
